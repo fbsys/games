@@ -21,6 +21,8 @@ class BadgeLogsController < ApplicationController
 
   # GET /badge_logs/1/edit
   def edit
+    @badges = Badge.all
+    @users = User.all
   end
 
   # POST /badge_logs
@@ -72,6 +74,7 @@ class BadgeLogsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def badge_log_params
       #params[:badge_log]
-      params.require(:badge_log).permit(:badge_id, :to_user_id, :description)
+      params[:badge_log][:from_user_id] = current_user.id
+      params.require(:badge_log).permit(:badge_id, :to_user_id, :from_user_id, :description)
     end
 end
