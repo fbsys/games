@@ -1,0 +1,1 @@
+json.extract! @time_management_sheet, :id, :year, :month, :employee_num, :company_name, :department_code, :instruction_id, :team_code, :work_task_id, :work_process_id, :man_hour, :created_at, :updated_at

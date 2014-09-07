@@ -1,0 +1,161 @@
+<p><%= link_to 'Back', avatars_path %></p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ID:</strong>
+  <%= @avatar.id %>
+</p>
+
+<p>
+  <strong>Avatar type:</strong>
+  <%= @avatar.avatar_type %>
+</p>
+
+<p>
+  <strong>Avatar image:</strong>
+  <%= image_tag(@avatar.avatar_type + ".gif", :height => '128', :align => "top") %>
+</p>
+
+<p>
+  <strong>Avatar status:</strong>
+  <table>
+    <thead>
+      <tr>
+        <th>Strength</th>
+        <th>Constitution</th>
+        <th>Intelligence</th>
+        <th>Magic</th>
+        <th>Agility</th>
+        <th>Charm</th>
+        <th>Potential</th>
+        <th>Luck</th>
+        <th>created_at</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><%= @avatar.strength %></td>
+        <td><%= @avatar.constitution %></td>
+        <td><%= @avatar.intelligence %></td>
+        <td><%= @avatar.magic %></td>
+        <td><%= @avatar.agility %></td>
+        <td><%= @avatar.charm %></td>
+        <td><%= @avatar.potential %></td>
+        <td><%= @avatar.luck %></td>
+        <td><%= @avatar.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+      </tr>
+    </tbody>
+  </table>
+</p>
+
+<hr>
+
+<p>
+  <strong>elapsed time[hour]:</strong>
+  <table>
+    <thead>
+      <tr>
+        <th>指図書別</th>
+        <th>タスクコード別</th>
+        <th>工程区分別</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><canvas id="pie_inst" height="200" width="200" align="top"></canvas></td>
+        <td><canvas id="pie_task" height="200" width="200" align="top"></canvas></td>
+        <td><canvas id="pie_proc" height="200" width="200" align="top"></canvas></td>
+      </tr>
+    </tbody>
+  </table>
+</p>
+
+<hr>
+
+<p>
+  <strong>help:</strong>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th>指図書</th>
+        <th>タスクコード</th>
+        <th>工程区分</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th>Strength</br>（開発/設計）</th>
+        <td><font color="#ff7f7f">■</font></td>
+        <td>none</td>
+        <td>JKM*/JRM*</td>
+        <td>設計～UT</td>
+      </tr>
+      <tr>
+        <th>Constitution</br>（保守/テスト）</th>
+        <td><font color="#ff7fff">■</font></td>
+        <td>保守系</td>
+        <td>JOM*</td>
+        <td>ITa～ST</td>
+      </tr>
+      <tr>
+        <th>Intelligence</br>（マネジメント）</th>
+        <td><font color="#7f7fff">■</font></td>
+        <td>管理系</td>
+        <td>none</td>
+        <td>管理系/計画系/審査系</td>
+      </tr>
+      <tr>
+        <th>Magic</br>（特殊案件）</th>
+        <td><font color="#7fffff">■</font></td>
+        <td>運用/提案/大型案件/個別案件</td>
+        <td>PRJ*</td>
+        <td>要件定義/</td>
+      </tr>
+      <tr>
+        <th>Agility</br>（障害対応/本番環境）</th>
+        <td><font color="#7fffbf">■</font></td>
+        <td>none</td>
+        <td>JBM*</td>
+        <td>本番作業系</td>
+      </tr>
+      <tr>
+        <th>Charm</br>（研修）</th>
+        <td><font color="#7fff7f">■</font></td>
+        <td>研修/教育</td>
+        <td>KAD*</td>
+        <td>自己啓発/研修</td>
+      </tr>
+      <tr>
+        <th>Potential</br>（未分類）</th>
+        <td><font color="#ffff7f">■</font></td>
+        <td>others</td>
+        <td>others</td>
+        <td>others</td>
+      </tr>
+      <tr>
+        <th>Luck</br>（運）</th>
+        <td><font color="#ffbf7f">■</font></td>
+        <td>none(real luck)</td>
+        <td>none(real luck)</td>
+        <td>none(real luck)</td>
+      </tr>
+    </tbody>
+  </table>
+</p>
+
+<%= javascript_include_tag "Chart" %>
+<script>
+  var pie_inst = <%=raw pie_instruction(@avatar) %>;
+  var myPieInstChart = new Chart(document.getElementById("pie_inst").getContext("2d")).Pie(pie_inst);
+  
+  var pie_proc = <%=raw pie_process(@avatar) %>;
+  var myPieProcChart = new Chart(document.getElementById("pie_proc").getContext("2d")).Pie(pie_proc);
+  
+  var pie_task = <%=raw pie_task(@avatar) %>;
+  var myPieTaskChart = new Chart(document.getElementById("pie_task").getContext("2d")).Pie(pie_task);
+</script>

@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ID:</strong>
+  <%= @time_management_sheet.id %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @time_management_sheet.year %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @time_management_sheet.month %>
+</p>
+
+<p>
+  <strong>Employee num:</strong>
+  <%= @time_management_sheet.employee_num %>
+</p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @time_management_sheet.company_name %>
+</p>
+
+<p>
+  <strong>Department code:</strong>
+  <%= @time_management_sheet.department_code %>
+</p>
+
+<p>
+  <strong>Instruction id:</strong>
+  <%= @time_management_sheet.instruction_id %>
+</p>
+
+<p>
+  <strong>Team code:</strong>
+  <%= @time_management_sheet.team_code %>
+</p>
+
+<p>
+  <strong>Task id:</strong>
+  <%= @time_management_sheet.work_task_id %>
+</p>
+
+<p>
+  <strong>Process id:</strong>
+  <%= @time_management_sheet.work_process_id %>
+</p>
+
+<p>
+  <strong>Man hour:</strong>
+  <%= @time_management_sheet.man_hour %>
+</p>
+
+<%= link_to 'Edit', edit_time_management_sheet_path(@time_management_sheet) %> |
+<%= link_to 'Back', time_management_sheets_path %>

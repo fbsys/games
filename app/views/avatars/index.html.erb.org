@@ -1,0 +1,51 @@
+<h1>Listing avatars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Month</th>
+      <th>Employee num</th>
+      <th>Company name</th>
+      <th>Employee name</th>
+      <th>Avatar type</th>
+      <th>Strength</th>
+      <th>Constitution</th>
+      <th>Intelligence</th>
+      <th>Magic</th>
+      <th>Agility</th>
+      <th>Charm</th>
+      <th>Luck</th>
+      <th>Potential</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @avatars.each do |avatar| %>
+      <tr>
+        <td><%= avatar.year %></td>
+        <td><%= avatar.month %></td>
+        <td><%= avatar.employee_num %></td>
+        <td><%= avatar.company_name %></td>
+        <td><%= avatar.employee_name %></td>
+        <td><%= avatar.avatar_type %></td>
+        <td><%= avatar.strength %></td>
+        <td><%= avatar.constitution %></td>
+        <td><%= avatar.intelligence %></td>
+        <td><%= avatar.magic %></td>
+        <td><%= avatar.agility %></td>
+        <td><%= avatar.charm %></td>
+        <td><%= avatar.luck %></td>
+        <td><%= avatar.potential %></td>
+        <td><%= link_to 'Show', avatar %></td>
+        <td><%= link_to 'Edit', edit_avatar_path(avatar) %></td>
+        <td><%= link_to 'Destroy', avatar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Avatar', new_avatar_path %>

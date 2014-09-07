@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @instruction.id %>
+</p>
+
+<p>
+  <strong>Instruction code:</strong>
+  <%= @instruction.instruction_code %>
+</p>
+
+<p>
+  <strong>Status type:</strong>
+  <%= @instruction.status_type %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @instruction.name %>
+</p>
+
+<%= link_to 'Edit', edit_instruction_path(@instruction) %> |
+<%= link_to 'Back', instructions_path %>

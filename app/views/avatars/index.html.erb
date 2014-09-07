@@ -1,0 +1,47 @@
+<h1>Listing avatars</h1>
+<div align="right"><small>※アバター画像→<a href="http://www.geocities.co.jp/Milano-Cat/3319/" target="_blank">Rド</a></small></div>
+
+<%= link_to 'New Avatar', new_avatar_path %>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Avatar image</th>
+      <th>Avatar type</th>
+      <th>Strength</th>
+      <th>Constitution</th>
+      <th>Intelligence</th>
+      <th>Magic</th>
+      <th>Agility</th>
+      <th>Charm</th>
+      <th>Potential</th>
+      <th>Luck</th>
+      <th>created_at</th>
+      <th colspan="2">action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @avatars.each do |avatar| %>
+      <tr>
+        <td><%= link_to avatar.id, avatar %></td>
+        <td><%= image_tag(avatar.avatar_type + ".gif", :height => '64') %></td>
+        <td><%= avatar.avatar_type %></td>
+        <td><%= avatar.strength %></td>
+        <td><%= avatar.constitution %></td>
+        <td><%= avatar.intelligence %></td>
+        <td><%= avatar.magic %></td>
+        <td><%= avatar.agility %></td>
+        <td><%= avatar.charm %></td>
+        <td><%= avatar.potential %></td>
+        <td><%= avatar.luck %></td>
+        <td><%= avatar.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+        <td><%= link_to 'Show', avatar %></td>
+        <td><%= link_to 'Destroy', avatar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

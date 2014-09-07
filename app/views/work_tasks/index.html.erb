@@ -1,0 +1,31 @@
+<h1>Listing work_tasks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Task code</th>
+      <th>Status type</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @work_tasks.each do |work_task| %>
+      <tr>
+        <td><%= work_task.id %></td>
+        <td><%= work_task.short_task_code %></td>
+        <td><%= work_task.status_type %></td>
+        <td><%= work_task.name %></td>
+        <td><%= link_to 'Show', work_task %></td>
+        <td><%= link_to 'Edit', edit_work_task_path(work_task) %></td>
+        <td><%= link_to 'Destroy', work_task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Work task', new_work_task_path %>

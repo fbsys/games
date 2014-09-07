@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @avatar.year %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @avatar.month %>
+</p>
+
+<p>
+  <strong>Employee num:</strong>
+  <%= @avatar.employee_num %>
+</p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @avatar.company_name %>
+</p>
+
+<p>
+  <strong>Employee name:</strong>
+  <%= @avatar.employee_name %>
+</p>
+
+<p>
+  <strong>Avatar type:</strong>
+  <%= @avatar.avatar_type %>
+</p>
+
+<p>
+  <strong>Strength:</strong>
+  <%= @avatar.strength %>
+</p>
+
+<p>
+  <strong>Constitution:</strong>
+  <%= @avatar.constitution %>
+</p>
+
+<p>
+  <strong>Intelligence:</strong>
+  <%= @avatar.intelligence %>
+</p>
+
+<p>
+  <strong>Magic:</strong>
+  <%= @avatar.magic %>
+</p>
+
+<p>
+  <strong>Agility:</strong>
+  <%= @avatar.agility %>
+</p>
+
+<p>
+  <strong>Charm:</strong>
+  <%= @avatar.charm %>
+</p>
+
+<p>
+  <strong>Luck:</strong>
+  <%= @avatar.luck %>
+</p>
+
+<p>
+  <strong>Potential:</strong>
+  <%= @avatar.potential %>
+</p>
+
+<%= link_to 'Edit', edit_avatar_path(@avatar) %> |
+<%= link_to 'Back', avatars_path %>

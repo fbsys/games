@@ -1,0 +1,1 @@
+json.extract! @avatar, :id, :year, :month, :employee_num, :company_name, :employee_name, :avatar_type, :strength, :constitution, :intelligence, :magic, :agility, :charm, :luck, :potential, :created_at, :updated_at

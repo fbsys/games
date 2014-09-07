@@ -1,0 +1,31 @@
+<h1>Listing work_processes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Process code</th>
+      <th>Status type</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @work_processes.each do |work_process| %>
+      <tr>
+        <td><%= work_process.id %></td>
+        <td><%= work_process.process_code %></td>
+        <td><%= work_process.status_type %></td>
+        <td><%= work_process.name %></td>
+        <td><%= link_to 'Show', work_process %></td>
+        <td><%= link_to 'Edit', edit_work_process_path(work_process) %></td>
+        <td><%= link_to 'Destroy', work_process, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Work process', new_work_process_path %>

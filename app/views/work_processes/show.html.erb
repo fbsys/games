@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @work_process.id %>
+</p>
+
+<p>
+  <strong>Process code:</strong>
+  <%= @work_process.process_code %>
+</p>
+
+<p>
+  <strong>Status type:</strong>
+  <%= @work_process.status_type %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @work_process.name %>
+</p>
+
+<%= link_to 'Edit', edit_work_process_path(@work_process) %> |
+<%= link_to 'Back', work_processes_path %>

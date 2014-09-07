@@ -1,0 +1,57 @@
+<%= form_for(@time_management_sheet) do |f| %>
+  <% if @time_management_sheet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@time_management_sheet.errors.count, "error") %> prohibited this time_management_sheet from being saved:</h2>
+
+      <ul>
+      <% @time_management_sheet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :year %><br>
+    <%= f.number_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :month %><br>
+    <%= f.number_field :month %>
+  </div>
+  <div class="field">
+    <%= f.label :employee_num %><br>
+    <%= f.text_area :employee_num %>
+  </div>
+  <div class="field">
+    <%= f.label :company_name %><br>
+    <%= f.text_area :company_name %>
+  </div>
+  <div class="field">
+    <%= f.label :department_code %><br>
+    <%= f.text_area :department_code %>
+  </div>
+  <div class="field">
+    <%= f.label :instruction_id %><br>
+    <%= f.text_area :instruction_id %>
+  </div>
+  <div class="field">
+    <%= f.label :team_code %><br>
+    <%= f.text_area :team_code %>
+  </div>
+  <div class="field">
+    <%= f.label :work_task_id %><br>
+    <%= f.text_area :work_task_id %>
+  </div>
+  <div class="field">
+    <%= f.label :work_process_id %><br>
+    <%= f.text_area :work_process_id %>
+  </div>
+  <div class="field">
+    <%= f.label :man_hour %><br>
+    <%= f.text_field :man_hour %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

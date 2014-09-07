@@ -1,0 +1,73 @@
+<%= form_for(@avatar) do |f| %>
+  <% if @avatar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@avatar.errors.count, "error") %> prohibited this avatar from being saved:</h2>
+
+      <ul>
+      <% @avatar.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :year %><br>
+    <%= f.number_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :month %><br>
+    <%= f.number_field :month %>
+  </div>
+  <div class="field">
+    <%= f.label :employee_num %><br>
+    <%= f.text_field :employee_num %>
+  </div>
+  <div class="field">
+    <%= f.label :company_name %><br>
+    <%= f.text_field :company_name %>
+  </div>
+  <div class="field">
+    <%= f.label :employee_name %><br>
+    <%= f.text_field :employee_name %>
+  </div>
+  <div class="field">
+    <%= f.label :avatar_type %><br>
+    <%= f.text_field :avatar_type %>
+  </div>
+  <div class="field">
+    <%= f.label :strength %><br>
+    <%= f.text_field :strength %>
+  </div>
+  <div class="field">
+    <%= f.label :constitution %><br>
+    <%= f.text_field :constitution %>
+  </div>
+  <div class="field">
+    <%= f.label :intelligence %><br>
+    <%= f.text_field :intelligence %>
+  </div>
+  <div class="field">
+    <%= f.label :magic %><br>
+    <%= f.text_field :magic %>
+  </div>
+  <div class="field">
+    <%= f.label :agility %><br>
+    <%= f.text_field :agility %>
+  </div>
+  <div class="field">
+    <%= f.label :charm %><br>
+    <%= f.text_field :charm %>
+  </div>
+  <div class="field">
+    <%= f.label :luck %><br>
+    <%= f.text_field :luck %>
+  </div>
+  <div class="field">
+    <%= f.label :potential %><br>
+    <%= f.text_field :potential %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
