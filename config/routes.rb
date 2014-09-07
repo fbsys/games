@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  devise_for :users
   resources :work_tasks
 
   resources :work_processes
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
+  root 'avatars#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
