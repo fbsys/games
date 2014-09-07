@@ -4,4 +4,4 @@ in config/environments/production.rb
     config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
     
 
-deviseÅEÅEÅEhttp://railsgirls.jp/devise/
+devise---http://railsgirls.jp/devise/
