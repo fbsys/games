@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
 
+  resources :badge_logs
+  resources :badge_conditions
+  resources :badge_categories
+  resources :badges
   devise_for :users
   resources :work_tasks
-
   resources :work_processes
-
   resources :time_management_sheets
-
-  resources :instrucions
-
+  resources :instructionss
   resources :avatars
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'avatars#index'
+  root 'menu#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

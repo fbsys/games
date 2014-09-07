@@ -1,0 +1,2 @@
+module BadgeLogsHelper
+end

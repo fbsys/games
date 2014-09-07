@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140907040704) do
+ActiveRecord::Schema.define(version: 20140907061305) do
 
   create_table "avatars", force: true do |t|
     t.string   "employee_num"
@@ -29,6 +29,39 @@ ActiveRecord::Schema.define(version: 20140907040704) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "dates"
+  end
+
+  create_table "badge_categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "badge_conditions", force: true do |t|
+    t.integer  "badge_id"
+    t.string   "condition"
+    t.integer  "pass_num"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "badge_logs", force: true do |t|
+    t.integer  "from_user_id"
+    t.integer  "to_user_id"
+    t.integer  "badge_id"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "badges", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "badge_type"
+    t.integer  "file_id"
+    t.integer  "badge_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "instructions", force: true do |t|

@@ -1,0 +1,17 @@
+<%= form_for(@badge_log) do |f| %>
+  <% if @badge_log.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@badge_log.errors.count, "error") %> prohibited this badge_log from being saved:</h2>
+
+      <ul>
+      <% @badge_log.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

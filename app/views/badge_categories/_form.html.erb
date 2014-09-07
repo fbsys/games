@@ -1,0 +1,22 @@
+<%= form_for(@badge_category) do |f| %>
+  <% if @badge_category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@badge_category.errors.count, "error") %> prohibited this badge_category from being saved:</h2>
+
+      <ul>
+      <% @badge_category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_area :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

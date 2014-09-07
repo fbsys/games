@@ -1,0 +1,2 @@
+module BadgeConditionsHelper
+end
