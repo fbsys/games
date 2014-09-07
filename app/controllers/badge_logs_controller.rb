@@ -32,8 +32,11 @@ class BadgeLogsController < ApplicationController
 
     respond_to do |format|
       if @badge_log.save
-        format.html { redirect_to @badge_log, notice: 'Badge log was successfully created.' }
-        format.json { render :show, status: :created, location: @badge_log }
+        #format.html { redirect_to @badge_log, notice: 'Badge log was successfully created.' }
+        #format.json { render :show, status: :created, location: @badge_log }
+        @badge_logs = BadgeLog.all
+        format.html { render :index, notice: 'Badge log was successfully created.' }
+        format.json { render :index, status: :created, location: @badge_log }
       else
         format.html { render :new }
         format.json { render json: @badge_log.errors, status: :unprocessable_entity }

@@ -21,7 +21,7 @@
       <div class="collapse navbar-collapse">
         <p class="navbar-text pull-right">
           <% if user_signed_in? %>
-            Logged in as <strong><%= current_user.email %></strong>.
+            Logged in as <strong><%= current_user.email[0,5] %></strong>.
             <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
             <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
           <% else %>
@@ -32,6 +32,11 @@
         <ul class="nav navbar-nav">
           <li class="<%= "active" if controller.controller_name == "avatars" %>"><%= link_to 'Avatars', avatars_path %></li>
           <li class="<%= "active" if controller.controller_name == "badge_logs" %>"><%= link_to 'Badges', badge_logs_path %></li>
+          <li class="<%= "active" if controller.controller_name == "comments" %>"><a><s>Comments</s></a></li>
+          <li class="<%= "active" if controller.controller_name == "database" %>"><a><s>DB(Knowldege)</s></a></li>
+          <li class="<%= "active" if controller.controller_name == "event" %>"><a><s>Event</s></a></li>
+          <li class="<%= "active" if controller.controller_name == "free_presentations" %>"><a><s>FreePresentation</s>	</a></li>
+          <li class="<%= "active" if controller.controller_name == "g??????" %>"><a><s>Goal</s></a></li>
         </ul>
       </div>
     </div>
