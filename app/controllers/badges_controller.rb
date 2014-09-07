@@ -5,6 +5,7 @@ class BadgesController < ApplicationController
   # GET /badges.json
   def index
     @badges = Badge.all
+    @badge_logs = BadgeLog.all
   end
 
   # GET /badges/1
