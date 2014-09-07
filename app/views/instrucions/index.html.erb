@@ -1,0 +1,23 @@
+<h1>Listing instrucions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @instrucions.each do |instrucion| %>
+      <tr>
+        <td><%= link_to 'Show', instrucion %></td>
+        <td><%= link_to 'Edit', edit_instrucion_path(instrucion) %></td>
+        <td><%= link_to 'Destroy', instrucion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Instrucion', new_instrucion_path %>
