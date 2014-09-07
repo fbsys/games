@@ -15,6 +15,8 @@ class BadgeLogsController < ApplicationController
   # GET /badge_logs/new
   def new
     @badge_log = BadgeLog.new
+    @badges = Badge.all
+    @users = User.all
   end
 
   # GET /badge_logs/1/edit
@@ -69,6 +71,7 @@ class BadgeLogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def badge_log_params
-      params[:badge_log]
+      #params[:badge_log]
+      params.require(:badge_log).permit(:badge_id, :to_user_id, :description)
     end
 end
