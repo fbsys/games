@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140907061305) do
+ActiveRecord::Schema.define(version: 20140908131134) do
 
   create_table "avatars", force: true do |t|
     t.string   "employee_num"
@@ -87,6 +87,14 @@ ActiveRecord::Schema.define(version: 20140907061305) do
     t.datetime "updated_at"
     t.integer  "avatar_id"
     t.text     "task_code"
+  end
+
+  create_table "upload_files", force: true do |t|
+    t.string   "filename"
+    t.string   "content_type"
+    t.string   "server_path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

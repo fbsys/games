@@ -25,10 +25,16 @@ class BadgesController < ApplicationController
   # POST /badges
   # POST /badges.json
   def create
-    @badge = Badge.new(badge_params)
+    param = badge_params
+    flag = false
+    if param
+      @badge = Badge.new(param)
+      flag = @badge.save
+      @badge.file.destroy unless flag
+    end
 
     respond_to do |format|
-      if @badge.save
+      if flag
         format.html { redirect_to @badge, notice: 'Badge was successfully created.' }
         format.json { render :show, status: :created, location: @badge }
       else
@@ -70,7 +76,11 @@ class BadgesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def badge_params
-      #params[:badge]
-      params.require(:badge).permit(:name)
+        #params[:badge]
+        uploadfile = UploadFile.save_file(params[:badge][:badge_image])
+        return false unless uploadfile.save
+        params[:badge][:file_id] = uploadfile.id
+        params.require(:badge).permit(:name, :description, :file_id)
+
     end
 end

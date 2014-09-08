@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :upload_files
+
   resources :badge_logs
   resources :badge_conditions
   resources :badge_categories
