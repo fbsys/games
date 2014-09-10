@@ -11,7 +11,7 @@ class UploadFile < ActiveRecord::Base
           tmp_file = t.strftime("%Y%m%d%H%M%S#{t.usec.to_s[0, 3]}") + tmp_file
           upload_file_path = Hash[:full_path => tmp_folder + tmp_file, :folder_path => tmp_folder, :file_name => tmp_file]
       end
-      FileUtils.move(old_name, upload_file_path[:full_path])
+      FileUtils.copy(old_name, upload_file_path[:full_path])
       return upload_file_path
     end
 

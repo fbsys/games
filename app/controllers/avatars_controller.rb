@@ -28,7 +28,7 @@ class AvatarsController < ApplicationController
     @avatar = Avatar.new
     
     if params[:avatar] && params[:avatar][:upload_file] && !params[:avatar][:upload_file].to_s.empty?
-      @upload_file_path = UploadFile.make_diskfile(params[:avatar][:upload_file])
+      @upload_file_path = UploadFile.make_diskfile(params[:avatar][:upload_file])[:full_path]
       @avatar = Avatar.make(@upload_file_path)
       created = @avatar.save if @avatar
       @avatar = Avatar.new if !@avatar
