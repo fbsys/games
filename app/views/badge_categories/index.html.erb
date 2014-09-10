@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Id</th>
+      <th>Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +13,7 @@
     <% @badge_categories.each do |badge_category| %>
       <tr>
         <td><%= badge_category.id %></td>
+        <td><%= badge_category.name %></td>
         <td><%= link_to 'Show', badge_category %></td>
         <td><%= link_to 'Edit', edit_badge_category_path(badge_category) %></td>
         <td><%= link_to 'Destroy', badge_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>

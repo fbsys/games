@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908131134) do
+ActiveRecord::Schema.define(version: 20140910084100) do
 
   create_table "avatars", force: true do |t|
     t.string   "employee_num"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20140908131134) do
     t.string   "name"
     t.string   "description"
     t.string   "badge_type"
-    t.integer  "file_id"
+    t.integer  "upload_file_id"
     t.integer  "badge_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -92,9 +92,10 @@ ActiveRecord::Schema.define(version: 20140908131134) do
   create_table "upload_files", force: true do |t|
     t.string   "filename"
     t.string   "content_type"
-    t.string   "server_path"
+    t.string   "disk_filename"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "disk_fullpath"
   end
 
   create_table "users", force: true do |t|

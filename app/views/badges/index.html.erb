@@ -7,7 +7,8 @@
     <tr>
       <th>Id</th>
       <th>Name</th>
-      <th>FileId</th>
+      <th>CategoryName</th>
+      <th>BadgeIcon</th>
       <th>Description</th>
       <th>Created_at</th>
       <th></th>
@@ -19,7 +20,8 @@
       <tr>
         <td><%= badge.id %></td>
         <td><%= badge.name %></td>
-        <td><%= badge.file_id %></td>
+        <td><%= badge.badge_category.name if badge.badge_category %></td>
+        <td><%= image_tag(badge.file.disk_filename, :height => '64') if badge.file %></td>
         <td><%= badge.description %></td>
         <td><%= badge.created_at %></td>
         <td><%= link_to 'Destroy', badge, method: :delete, data: { confirm: 'Are you sure?' } %></td>

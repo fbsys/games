@@ -1,5 +1,6 @@
 class BadgeLogsController < ApplicationController
   before_action :set_badge_log, only: [:show, :edit, :update, :destroy]
+  before_action :set_relational_data, only: [:new, :create]
 
   # GET /badge_logs
   # GET /badge_logs.json
@@ -15,14 +16,10 @@ class BadgeLogsController < ApplicationController
   # GET /badge_logs/new
   def new
     @badge_log = BadgeLog.new
-    @badges = Badge.all
-    @users = User.all
   end
 
   # GET /badge_logs/1/edit
   def edit
-    @badges = Badge.all
-    @users = User.all
   end
 
   # POST /badge_logs
@@ -72,8 +69,19 @@ class BadgeLogsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_badge_log
       @badge_log = BadgeLog.find(params[:id])
+      set_relational_data
     end
-
+    
+    def set_relational_data
+        @badges = Badge.all
+        @users = User.all
+    end
+    
+    def set_badges
+        @badges = Badge.all
+        @users = User.all
+    end
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def badge_log_params
       #params[:badge_log]

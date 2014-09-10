@@ -1,11 +1,11 @@
 class BadgesController < ApplicationController
   before_action :set_badge, only: [:show, :edit, :update, :destroy]
+  before_action :set_badge_categories, only: [:new, :create]
 
   # GET /badges
   # GET /badges.json
   def index
     @badges = Badge.all
-    @badge_logs = BadgeLog.all
   end
 
   # GET /badges/1
@@ -25,13 +25,9 @@ class BadgesController < ApplicationController
   # POST /badges
   # POST /badges.json
   def create
-    param = badge_params
-    flag = false
-    if param
-      @badge = Badge.new(param)
-      flag = @badge.save
-      @badge.file.destroy unless flag
-    end
+    @badge = Badge.new(badge_params)
+    flag = @badge.save
+    @badge.file.destroy if !flag && @badge.file
 
     respond_to do |format|
       if flag
@@ -72,15 +68,21 @@ class BadgesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_badge
       @badge = Badge.find(params[:id])
+      set_badge_categories
+    end
+    def set_badge_categories
+        @badge_categories = BadgeCategory.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def badge_params
         #params[:badge]
-        uploadfile = UploadFile.save_file(params[:badge][:badge_image])
-        return false unless uploadfile.save
-        params[:badge][:file_id] = uploadfile.id
-        params.require(:badge).permit(:name, :description, :file_id)
+        if params[:badge][:badge_image]
+            uploadfile = UploadFile.save_badge_icon(params[:badge][:badge_image])
+            uploadfile.save
+            params[:badge][:upload_file_id] = uploadfile.id
+        end
+        params.require(:badge).permit(:name, :description, :upload_file_id, :badge_category_id)
 
     end
 end

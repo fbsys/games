@@ -1,4 +1,4 @@
-<h1>Listing badges</h1>
+<h1>Give Badges</h1>
 
 <%= link_to 'Give New Badge', new_badge_log_path %>
 
@@ -6,12 +6,14 @@
   <thead>
     <tr>
       <th>Id</th>
+      <th>BadgeCategory</th>
       <th>Badge</th>
+      <th>BadgeIcon</th>
       <th>From</th>
       <th>To</th>
       <th>Description</th>
       <th>Created_at</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -19,13 +21,13 @@
     <% @badge_logs.each do |badge_log| %>
       <tr>
         <td><%= badge_log.id %></td>
+        <td><%= badge_log.badge.badge_category.name if badge_log.badge && badge_log.badge.badge_category %></td>
         <td><%= badge_log.badge.name if badge_log.badge %></td>
+        <td><%= image_tag(badge_log.badge.file.disk_filename, :height => '64') if badge_log && badge_log.badge && badge_log.badge.file %></td>
         <td><%= badge_log.from_user.email if badge_log.from_user %></td>
         <td><%= badge_log.to_user.email if badge_log.to_user %></td>
         <td><%= badge_log.description %></td>
         <td><%= badge_log.created_at %></td>
-        <td><%= link_to 'Show', badge_log %></td>
-        <td><%= link_to 'Edit', edit_badge_log_path(badge_log) %></td>
         <td><%= link_to 'Destroy', badge_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
