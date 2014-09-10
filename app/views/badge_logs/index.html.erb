@@ -24,8 +24,8 @@
         <td><%= badge_log.badge.badge_category.name if badge_log.badge && badge_log.badge.badge_category %></td>
         <td><%= badge_log.badge.name if badge_log.badge %></td>
         <td><%= image_tag(badge_log.badge.file.disk_filename, :height => '64') if badge_log && badge_log.badge && badge_log.badge.file %></td>
-        <td><%= badge_log.from_user.email if badge_log.from_user %></td>
-        <td><%= badge_log.to_user.email if badge_log.to_user %></td>
+        <td><%= badge_log.from_user.name if badge_log.from_user %></td>
+        <td><%= badge_log.to_user.name if badge_log.to_user %></td>
         <td><%= badge_log.description %></td>
         <td><%= badge_log.created_at %></td>
         <td><%= link_to 'Destroy', badge_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>

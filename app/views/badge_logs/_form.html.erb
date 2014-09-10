@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label :to_user %><br>
-    <%= f.select :to_user_id, elements_options_for_select(@users, nil,:email), :include_blank => true %>
+    <%= f.select :to_user_id, elements_options_for_select(@users, nil,:name), :include_blank => true %>
   </div>
 
   <div class="field">

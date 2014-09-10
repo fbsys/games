@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910084100) do
+ActiveRecord::Schema.define(version: 20140910224100) do
 
   create_table "avatars", force: true do |t|
     t.string   "employee_num"
@@ -111,6 +111,9 @@ ActiveRecord::Schema.define(version: 20140910084100) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "admin",                  default: 0
+    t.text     "name",                   default: ""
+    t.text     "employee_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
