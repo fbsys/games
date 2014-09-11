@@ -1,5 +1,6 @@
 class UploadFilesController < ApplicationController
   before_action :set_upload_file, only: [:show, :edit, :update, :destroy]
+  before_action :current_admin_check
 
   # GET /upload_files
   # GET /upload_files.json

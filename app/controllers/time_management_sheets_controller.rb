@@ -1,5 +1,6 @@
 class TimeManagementSheetsController < ApplicationController
   before_action :set_time_management_sheet, only: [:show, :edit, :update, :destroy]
+  before_action :current_admin_check
 
   # GET /time_management_sheets
   # GET /time_management_sheets.json

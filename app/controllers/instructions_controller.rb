@@ -1,5 +1,6 @@
 class InstructionsController < ApplicationController
   before_action :set_instruction, only: [:show, :edit, :update, :destroy]
+  before_action :current_admin_check
 
   # GET /instructions
   # GET /instructions.json

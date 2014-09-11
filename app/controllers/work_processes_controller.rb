@@ -1,5 +1,6 @@
 class WorkProcessesController < ApplicationController
   before_action :set_work_process, only: [:show, :edit, :update, :destroy]
+  before_action :current_admin_check
 
   # GET /work_processes
   # GET /work_processes.json

@@ -1,5 +1,6 @@
 class WorkTasksController < ApplicationController
   before_action :set_work_task, only: [:show, :edit, :update, :destroy]
+  before_action :current_admin_check
 
   # GET /work_tasks
   # GET /work_tasks.json

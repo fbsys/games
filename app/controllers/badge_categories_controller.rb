@@ -1,5 +1,6 @@
 class BadgeCategoriesController < ApplicationController
   before_action :set_badge_category, only: [:show, :edit, :update, :destroy]
+  before_action :current_admin_check
 
   # GET /badge_categories
   # GET /badge_categories.json

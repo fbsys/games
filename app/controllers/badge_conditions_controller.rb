@@ -1,5 +1,6 @@
 class BadgeConditionsController < ApplicationController
   before_action :set_badge_condition, only: [:show, :edit, :update, :destroy]
+  before_action :current_admin_check
 
   # GET /badge_conditions
   # GET /badge_conditions.json
