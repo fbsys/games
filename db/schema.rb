@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910224100) do
+ActiveRecord::Schema.define(version: 20140910232409) do
 
   create_table "avatars", force: true do |t|
     t.string   "employee_num"
@@ -60,6 +60,12 @@ ActiveRecord::Schema.define(version: 20140910224100) do
     t.string   "badge_type"
     t.integer  "upload_file_id"
     t.integer  "badge_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", force: true do |t|
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

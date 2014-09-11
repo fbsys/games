@@ -42,4 +42,3 @@ gem 'tzinfo-data','1.2014.7', platforms: [:mingw, :mswin]
 # add for my project
 gem 'roo', '1.13.2'
 gem 'devise', '3.3.0'
-
