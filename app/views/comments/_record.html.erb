@@ -8,7 +8,7 @@
 	  <%= comment.body %>
 	</td>
 	<td>
-	  <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+	  <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
 	<td>
   </tr>
 <% end %>

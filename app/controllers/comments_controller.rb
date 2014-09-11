@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :current_admin_check, only: [:show, :new, :edit, :update]
 
   # GET /comments
   # GET /comments.json
@@ -65,10 +66,17 @@ class CommentsController < ApplicationController
   # DELETE /comments/1.json
   def destroy
     @comment.destroy
+    #respond_to do |format|
+    #  format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+    #  format.json { head :no_content }
+    #end
+
+    @comments = Comment.order("created_at DESC").all
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
-      format.json { head :no_content }
+      format.js
     end
+
+
   end
 
   private
