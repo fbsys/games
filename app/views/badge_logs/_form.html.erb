@@ -30,6 +30,16 @@ function selectBoxOptionsChange(valuedata, displaydata){
 	  }
 	}
 }
+function badgeicon(obj){
+  var iconlist =[];
+  var descriptionlist =[];
+  <% @badges.each do |badge| %>
+  iconlist[<%= badge.id %>] = "<%=raw image_tag(badge.file.disk_filename, :height => '128').gsub("\"", "'") if badge.file %>";
+  descriptionlist[<%= badge.id %>] = "<%=raw badge.description %>";
+  <% end %>
+  document.getElementById("badgeicon").innerHTML = iconlist[obj.options[obj.selectedIndex].value];
+  document.getElementById("badgedescription").innerHTML = descriptionlist[obj.options[obj.selectedIndex].value];
+}
 </script>
 <%= form_for(@badge_log) do |f| %>
   <% if @badge_log.errors.any? %>
@@ -46,7 +56,8 @@ function selectBoxOptionsChange(valuedata, displaydata){
 
   <div class="field">
     <%= f.label :badge %><br>
-    <%= f.select :badge_id, elements_options_for_select(@badges, nil,:name), :include_blank => true %>
+    <%= f.select :badge_id, elements_options_for_select(@badges, nil,:name), {:include_blank => true}, {:onchange => "badgeicon(this);"} %>
+	<table><tr><th>icon</th><th>description</th></tr><tr height="150"><td><div id="badgeicon"></div></td><td><div id="badgedescription"></div></td></tr></table>
   </div>
 
   <div class="field">
