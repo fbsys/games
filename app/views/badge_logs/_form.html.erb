@@ -1,3 +1,36 @@
+<script language="JavaScript1.2">
+$(document).ready( function() {
+	$("#username").autocomplete({
+			source: [ <%=raw @users.collect{|user| "'#{user.name}'"}.join(", ") %> ]
+	});
+});
+function changeList() {
+ var username = document.getElementById("user_name").value;
+ var namelist = [ <%=raw @users.collect{|user| "'#{user.name}'"}.join(", ") %> ];
+ var idlist = [ <%=raw @users.collect{|user| "'#{user.id}'"}.join(", ") %> ];
+ var targetlist_name = []
+ var targetlist_id = []
+ reg = new RegExp(username, "i");
+ for (i=0; i < namelist.length ; i++) {
+   if (namelist[i].match(reg)) {
+     targetlist_name.push(namelist[i]);
+     targetlist_id.push(idlist[i]);
+   };
+ };
+ selectBoxOptionsChange(targetlist_name,targetlist_id);
+}
+function selectBoxOptionsChange(valuedata, displaydata){
+  	var select = document.getElementById("badge_log_to_user_id");
+	select.length = 0;
+	var optionsNum = valuedata.length;
+
+    if (optionsNum > 0) {
+	  for(var i=0; i < optionsNum; ++i){
+		  select.options[i] = new Option(valuedata[i], displaydata[i]);
+	  }
+	}
+}
+</script>
 <%= form_for(@badge_log) do |f| %>
   <% if @badge_log.errors.any? %>
     <div id="error_explanation">
@@ -18,8 +51,10 @@
 
   <div class="field">
     <%= f.label :to_user %><br>
-    <%= f.select :to_user_id, elements_options_for_select(@users, nil,:name), :include_blank => true %>
+	<%= autocomplete_field_tag :user_name, @users.try(:name), autocomplete_user_name_badge_logs_path, :id_element => "#badge_logs_to_user_id", :required => true, onblur: 'changeList();' %>
+    <%= f.select :to_user_id, elements_options_for_select(@users, @touser,:name), :include_blank => true %>
   </div>
+  
 
   <div class="field">
     <%= f.label :description %><br>
@@ -27,6 +62,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Give New Badge" %>
+    <%= f.submit "Give New Badge"%>
   </div>
 <% end %>

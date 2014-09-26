@@ -38,7 +38,8 @@ gem 'sdoc', '0.4.1',          group: :doc
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data','1.2014.7', platforms: [:mingw, :mswin]
 
-
 # add for my project
 gem 'roo', '1.13.2'
 gem 'devise', '3.3.0'
+gem 'jquery-ui-rails', '5.0.0'
+gem 'rails3-jquery-autocomplete'

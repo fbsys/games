@@ -1,4 +1,10 @@
 == README
+you should command
+    bundle install
+    rails generate jquery:install --ui * maybee you should not do this
+	rails generate autocomplete:install
+
+
 in config/environments/production.rb
     #:host should be set to the actual host of your application.
     config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }

@@ -2,7 +2,15 @@ class BadgeLogsController < ApplicationController
   before_action :set_badge_log, only: [:show, :edit, :update, :destroy]
   before_action :set_relational_data, only: [:new, :create]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  autocomplete :user, :name, :full => true
 
+  def get_autocomplete_items(params)
+    logger.fatal "xxx"
+    items = super(params)
+    items = items.where("name like '%#{params[:term]}%'")
+    #items = User.where("name like '%#{params[:term]}%'")
+  end
+  
   # GET /badge_logs
   # GET /badge_logs.json
   def index

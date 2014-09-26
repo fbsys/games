@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   resources :upload_files
 
-  resources :badge_logs
+  resources :badge_logs do
+    get :autocomplete_user_name, :on => :collection
+  end
   resources :badge_conditions
   resources :badge_categories
   resources :badges
